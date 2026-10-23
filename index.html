@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="DN Kenner – technische Fittingmaße aus deinem Tabellenbuch.">
+  <title>DN Kenner</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">DN</div>
+    <div><h1>DN Kenner</h1><p>Fittingmaße · Tabellenbuch</p></div>
+    <span id="connection" class="status">Offline bereit</span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">TECHNISCHE REFERENZ</p>
+      <h2>Das richtige Maß.<br><span>Ohne langes Blättern.</span></h2>
+      <p>Wähle das Rohrsystem und den Fitting. Angezeigt werden nur Maße, die in den hinterlegten Quellen erfasst wurden.</p>
+    </section>
+
+    <section class="panel filters" aria-labelledby="filter-title">
+      <div class="section-heading"><span class="step">01</span><h2 id="filter-title">Fitting finden</h2></div>
+      <label for="system">Rohrsystem</label>
+      <div class="system-grid" id="system-options">
+        <button class="system-choice selected" type="button" data-system="Kupfer" aria-pressed="true"><span>Cu</span><b>Kupfer</b><small>Press- und Lötfittings</small></button>
+        <button class="system-choice" type="button" data-system="HT" aria-pressed="false"><span>HT</span><b>HT-Abfluss</b><small>Kunststoffrohrsystem</small></button>
+        <button class="system-choice" type="button" data-system="Temperguss" aria-pressed="false"><span>TG</span><b>Temperguss</b><small>Gewindefittings</small></button>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="search">Suche</label>
+          <input id="search" type="search" placeholder="z. B. Winkel, T-Stück, Muffe" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="fitting">Fittingart</label>
+          <select id="fitting"><option value="">Alle Fittingarten</option></select>
+        </div>
+        <div class="field">
+          <label for="size">Nennweite / Größe</label>
+          <select id="size"><option value="">Alle Größen</option></select>
+        </div>
+      </div>
+      <button id="reset" class="text-button" type="button">Filter zurücksetzen</button>
+    </section>
+
+    <section class="panel results" aria-labelledby="results-title">
+      <div class="results-heading">
+        <div><div class="section-heading"><span class="step">02</span><h2 id="results-title">Maßtabelle</h2></div><p id="result-count" class="muted">Noch keine Maße hinterlegt</p></div>
+        <span class="source-tag">PDF-Quelle</span>
+      </div>
+      <div id="results" class="table-wrap">
+        <div class="empty-state"><div class="empty-icon">⌕</div><h3>Die Datenbank wartet auf Maße</h3><p>Die App ist eingerichtet. Die Tabellenwerte aus deiner PDF müssen noch zuverlässig übertragen werden. Unleserliche Werte werden nicht geraten.</p></div>
+      </div>
+    </section>
+
+    <details class="panel source-panel">
+      <summary>Quellen- und Datenhinweise</summary>
+      <p>Maße werden nur angezeigt, wenn sie aus dem bereitgestellten Tabellenbuch-PDF übernommen und mit einer PDF-Seite dokumentiert wurden. Die PDF-Seite ist nicht automatisch die gedruckte Buchseite.</p>
+      <p>Leere Datenbankeinträge bedeuten nicht, dass es das Maß nicht gibt, sondern nur, dass es noch nicht erfasst wurde.</p>
+    </details>
+  </main>
+  <footer><span>DN Kenner</span><span>Lokale Referenz · keine Normprüfung</span></footer>
+  <script src="./app.js"></script>
+</body>
+</html>
